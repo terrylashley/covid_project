@@ -1,0 +1,33 @@
+
+
+1 - Login to Postgress and create database named (covid19_db)
+
+2 - Right click on the database covid19_db and select "query tool"
+
+3 - copy paste and run this code:
+
+CREATE TABLE covid19 (
+country TEXT PRIMARY KEY,
+country_code TEXT,
+new_cases_confirmed INT,
+total_cases_confirmed INT,
+new_deaths INT,
+total_deaths INT,
+new_recovered INT,
+total_recovered INT,
+date DATE
+);
+
+4 - Now open the jupiter notebook file where we have the API data. 
+
+5 - On line 9:
+
+Replace "postgres:postgres" with yourLogin:yourPassword (mine is postgres:postgres)
+
+rds_connection_string = "postgres:postgres@localhost:5432/covid19_db"
+engine = create_engine(f'postgresql://{rds_connection_string}')
+
+6 - Now go back to Postgress  and run the query below to make sure your data was imported properly
+
+select * from covid19
+

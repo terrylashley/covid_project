@@ -12,7 +12,7 @@ engine = create_engine(f'postgresql://{rds_connection_string}')
 # 3. Define what to do when a user hits the index route
 @app.route("/")
 def home():
-    result = '# query postGres'   {{db.customers}}
+    result = pd.read_sql_query('select * from employee_db', con=engine).head()  #{{db.customers}}
     print("Server received request for 'Home' page...")
     return render_template("index.html", db = result)
 
