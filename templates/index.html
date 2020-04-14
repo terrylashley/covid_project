@@ -6,9 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>COVID-19 PANDEMIC</title>
+
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://d3js.org/d3.v5.min.js"></script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
 </head>
 
 <body>
@@ -26,14 +28,6 @@
           <h5>Select Country:</h5>
           <select id="selDataset" onchange="optionChanged(this.value)"></select>
         </div>
-
-  <div id="plot"></div>
-
-  <select id="selDataset">
-    <option value="dataset1">DataSet1</option>
-    <option value="dataset2">DataSet2</option>
-  </select>
-  <script src="../static/js/plots.js"></script>
 
         <div class="panel panel-primary">
           <div class="panel-heading">
@@ -56,9 +50,16 @@
     </div>
   </div>
 
+  <div id="plot"></div>
+    <select id="selDataset">
+    <option value="dataset1">DataSet1</option>
+    <option value="dataset2">DataSet2</option>
+  </select>
+
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script src="../static/js/plots.js"></script>
   
   
 
