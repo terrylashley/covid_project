@@ -11,10 +11,10 @@ from flask import Flask, jsonify, render_template
 from flask_cors import CORS
 
 #Database Connection through SQLAlchemy
-rds_connection_string = “postgres:Jm09091016390@localhost:5433/covid19_db”
-engine = create_engine(f’postgresql://{rds_connection_string}’)
+rds_connection_string = "postgres:postgres@localhost:5433/covid19_db"
+engine = create_engine(f'postgresql://{rds_connection_string}')
 Base = automap_base()
-Base.prepare(engine, reflect=True)
+Base.prepare(engine, reflect=True);
 
 # Calling to DB Table
 Covid = Base.classes.disease
