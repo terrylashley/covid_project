@@ -26,12 +26,17 @@ app = Flask(__name__)
 cors = CORS(app)
 
 # Home Route
-@app.route(“/”)
+@app.route("/")
 def home():
-    return render_template(“index.html”)
+    return render_template("index.html")
+	
+# Map Route
+@app.route("/map")
+def home():
+    return render_template("map.html")
 	
 # Covid JSON Route
-@app.route(“/covid”)
+@app.route("/covid")
 def apiRoute():
 
     # Calling the database
@@ -47,19 +52,19 @@ def apiRoute():
     countryList = []
     for country, cCode, newConfirmed, totalConfirmed, newDeaths, newRecovered, totalRecovered, date in results:
         covid_dict = {}
-        covid_dict[“country”] = country
-        covid_dict[“country_code”] = cCode
-        covid_dict[“new_cases_confirmed”] = newConfirmed
-        covid_dict[“total_cases_confirmed”] = totalConfirmed
-        covid_dict[“new_deaths”] = newDeaths
-        covid_dict[“new_recovered”] = newRecovered
-        covid_dict[“total_recovered”] = totalRecovered
-        covid_dict[“date”] = date
+        covid_dict["country"] = country
+        covid_dict["country_code"] = cCode
+        covid_dict["new_cases_confirmed"] = newConfirmed
+        covid_dict["total_cases_confirmed"] = totalConfirmed
+        covid_dict["new_deaths"] = newDeaths
+        covid_dict["new_recovered"] = newRecovered
+        covid_dict["total_recovered"] = totalRecovered
+        covid_dict["date"] = date
         countryList.append(covid_dict)
     print(type(countryList))
-    print(“=========“)
+    print("=========")
     print(countryList)
     return jsonify(countryList)
 	
-if __name__ == “__main__“:
+if __name__ == "__main__":
     app.run(debug=True)
