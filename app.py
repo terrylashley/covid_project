@@ -32,7 +32,7 @@ def home():
 	
 # Map Route
 @app.route("/map")
-def home():
+def heatmap():
     return render_template("map.html")
 	
 # Covid JSON Route
