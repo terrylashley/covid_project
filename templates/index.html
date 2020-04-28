@@ -18,9 +18,17 @@
   
     <div class="row">
       <div class="col-md-12 jumbotron text-center">
-        <h1>Covid19 Dashboard</h1>
-        <h5>Data and Statistics Updates</h5>
-      </div>
+		<img src="https://spacenews.com/wp-content/uploads/2020/03/image.png" alt="corona" />
+        <!--<h1>Covid19 Dashboard</h1>-->
+        <!--<h5>Data and Statistics Updates</h5>-->
+	 
+		 <!-- Image -->
+	
+		
+		
+	 </div>
+	
+      
     </div>
 	
 	<div class="row">
@@ -63,7 +71,15 @@
         <div id="mypie"></div>
       </div>
     </div>
+	  <h3>More Data on the Most Severly Affected Countries</h3>
+	<div class="row">
+      <div class="col-md-12 jumbotron text-center">
+        <div id="mychart"></div>
+      </div>
+    </div>
+	
 	</div>
+	
 	<br>
 	
 	<div class="jumbotron">
@@ -107,15 +123,43 @@
 	
 	</div>
 	
-
+     <!-- Button for heat map -->
     <div class="row">
-      <div class="col-md-12">
-	    <button type="button" class="btn btn-primary btn-lg btn-block" onclick= "window.location.href='./map/map.html'">US Covid19 Cases on the Map</button>
+      <div class="col-md-8">
+	  
+		<h3>   Track COVID19 on the map </h3>
+		
+		<br>
+		<br>
+	    <img src="https://images.squarespace-cdn.com/content/v1/562837d1e4b0c53c5afbc078/1482879922100-GDT9ER64RAJB3CJEUFM4/ke17ZwdGBToddI8pDm48kPgB5UZuTlJh7Xu10m8Q7jRZw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZUJFbgE-7XRK3dMEBRBhUpxfjGb4LK3vkMoxEeYzzdAQPvHKBt7zCAXHauBj3i0E-yEGNr6BPcXpU9ty3E6_A6o/us-agriculture-collage.jpg?format=1000w" alt="coronamap" />
+		
+		<br>
+		<br>
+	    <a class="btn btn-primary btn-lg btn-block " href="/map" role="button">US Covid19 Cases on the Map</a>
+	    <!--<button type="button" class="btn btn-primary btn-lg btn-block" onclick= href="http://127.0.0.1:5000/map">US Covid19 Cases on the Map</button> -->
 		<br>
 		<br>
         <div id="bubble"></div>
       </div>
     </div>
+
+	 <!-- Button for heat map -->
+    <div class="row">
+      <div class="col-md-8">
+	  <br>
+	    <a class="btn btn-primary btn-lg btn-block " href="/mapfun" role="button">Corona Map Cartoon</a>
+	    <!--<button type="button" class="btn btn-primary btn-lg btn-block" onclick= href="http://127.0.0.1:5000/graph">US Covid19 Cases on the Map</button> -->
+		<br>
+		<br>
+        <div id="bubble"></div>
+      </div>
+    </div>
+
+
+
+
+
+
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>

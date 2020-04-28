@@ -1,65 +1,56 @@
-var curl = `http://127.0.0.1:5000/covid`;
-var svg = d3.select(“#my_dataviz”)
-    .append(“svg”)
-    .append(“g”)
-svg.append(“rect”)
-    .attr(“width”, “100%“)
-    .attr(“height”, “100%“)
-    .attr(“fill”, “white”);
+var curl = "http://127.0.0.1:5000/covid";
+
 // Fetch the JSON data and console log it
-var margin = {top: 20, right: 20, bottom: 30, left: 40},
-    width = 960 - margin.left - margin.right,
+
+var margin = { top: 20, right: 40, bottom: 40, left: 150 },
+    width = 650 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
-// set the ranges
-var y = d3.scaleBand()
-          .range([height, 0])
-          .padding(0.1);
-var x = d3.scaleLinear()
-          .range([0, width]);
+
 // append the svg object to the body of the page
-// append a ‘group’ element to ‘svg’
-// moves the ‘group’ element to the top left margin
-var svg = d3.select(“body”).append(“svg”)
-    .attr(“width”, width + margin.left + margin.right)
-    .attr(“height”, height + margin.top + margin.bottom)
-  .append(“g”)
-    .attr(“transform”,
-          “translate(” + margin.left + “,” + margin.top + “)”);
-  // format the data
-  d3.json(curl).then(function(data) {
-// X axis
-var x = d3.scaleBand()
-.range([ 0, width ])
-.domain(data.map(function(d) { return d.country; }))
-.padding(0.2);
-svg.append(“g”)
-.attr(“transform”, “translate(0,” + height + “)”)
-.call(d3.axisBottom(x))
-.selectAll(“text”)
-  .attr(“transform”, “translate(-10,0)rotate(-90)“)
-  .style(“text-anchor”, “end”);
-// Add Y axis
-var y = d3.scaleLinear()
-.domain([0, 13000])
-.range([ height, 0]);
-svg.append(“g”)
-.call(d3.axisLeft(y));
-// Bars
-svg.selectAll(“mybar”)
-.data(data)
-.enter()
-.append(“rect”)
-  .attr(“x”, function(d) { return x(d.country); })
-  .attr(“width”, x.bandwidth())
-  .attr(“fill”, “black”)
-  // no bar at the beginning thus:
-  .attr(“height”, function(d) { return height - y(0); }) // always equal to 0
-  .attr(“y”, function(d) { return y(0); })
-// Animation
-svg.selectAll(“rect”)
-.transition()
-.duration(800)
-.attr(“y”, function(d) { return y(d.new_deaths); })
-.attr(“height”, function(d) { return height - y(d.new_deaths); })
-.delay(function(d,i){console.log(i) ; return(i*100)})
-})
+
+var svg = d3.select("#my_dataviz")
+    .append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+    .attr("transform",
+        "translate(" + margin.left + "," + margin.top + ")");
+svg.append("rect")
+    .attr("width", 650)
+    .attr("height", 2000)
+    .attr("fill", "white");
+// format the data
+d3.json(curl).then(function(data) {
+    var x = d3.scaleLinear()
+        .domain([0, 10000])
+        .range([0, width]);
+    svg.append("g")
+        .attr("transform", "translate(0," + height + ")")
+        .call(d3.axisBottom(x))
+        .selectAll("text")
+        .attr("transform", "translate(-10, 0) rotate(-45)")
+        .style("text - anchor", "end");
+    // Y axis
+    var y = d3.scaleBand()
+        .range([0, height])
+        .domain(data.map(function(d) { return d.country; }))
+        .padding(10);
+    svg.append("g")
+        .call(d3.axisLeft(y))
+        .selectAll("text")
+        .attr("text", "white")
+        .attr("transform", "translate(100, 0)")
+        .style("text - anchor", "end");
+    //Bars
+    svg.selectAll("myRect")
+        .data(data)
+        .enter()
+        .append("rect")
+        .attr("x", x(0) + 5)
+        .attr("y", function(d) { return y(d.country); })
+        .attr("width", function(d) { return x(d.new_deaths); })
+        .attr("height", y.bandwidth(5))
+        .attr("fill", "#69B3A2")
+        .attr("text", "black")
+
+});
