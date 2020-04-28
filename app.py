@@ -13,7 +13,7 @@ from flask import *
 from flask_cors import CORS
 
 #Database Connection through SQLAlchemy
-rds_connection_string = "postgres:postgres@localhost:5432/covid19_db"
+rds_connection_string = "postgres:postgres@localhost:5433/covid19_db"
 engine = create_engine(f'postgresql://{rds_connection_string}')
 Base = automap_base()
 Base.prepare(engine, reflect=True);
