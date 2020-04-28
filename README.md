@@ -9,4 +9,6 @@ The COVID-19 pandemic has prompted us to display some statistics. Specifically, 
 
 ### A link to your data set(s) and a screenshot of the metadata if it exists.
 CSVs: https://github.com/CSSEGISandData/COVID-19
-API: https://api.covid19api.com/summary
+API: https://api.covid19api.com/summary, https://pomber.github.io/covid19/timeseries.json
+
+IMAGE: http://pngimg.com/uploads/coronavirus/coronavirus_PNG40.png
